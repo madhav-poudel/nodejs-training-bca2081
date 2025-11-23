@@ -1,7 +1,5 @@
 // console.log("Hello World!");
 
-
-
 // Variables in JavaScript
 // let program = "HELLO";
 // console.log(program);
@@ -11,11 +9,6 @@
 // console.log(pi);
 
 // Functions in JavaScript
-
-
-
-
-
 
 
 // Guess The Output
@@ -74,11 +67,11 @@
 
 
 // Example:
-function add(a, b) {
-  return a + b;
-}
+// function add(a, b) {
+//   return a + b;
+// }
 
-console.log(add(5, 3));
+// console.log(add(5, 3));
 
 
 
@@ -89,5 +82,323 @@ console.log(add(5, 3));
 // Returns the number multiplied by 2
 
 // Print the result
+
+
+// function doubleNumber(num) {
+//   return num * 2;
+// }
+// console.log(doubleNumber(5));
+
+
+// Create a function named isEven that:
+
+// Takes one number
+
+// Checks if the number is even
+
+// Returns true if even, otherwise false
+
+// Print the returned value
+
+
+// function isEven(num) {
+//   return num % 2 === 0;
+// }
+
+// console.log(isEven(6)); 
+// console.log(isEven(7)); 
+
+
+
+
+// Scope in JavaScript
+
+// Scope means where your variable is allowed to live and where it can be used.
+// Think of it like borders: some variables can travel everywhere, some can only stay inside their own area.
+
+
+
+
+// let x = 10; // global
+
+// function test() {
+//   let y = 5; // local
+//   console.log(x); // allowed
+//   console.log(y); // allowed
+// }
+
+// console.log(x); // allowed
+// console.log(y); // error (outside scope)
+
+
+
+
+
+
+
+// Create:
+
+// A global variable x = 5
+
+// A function test()
+
+// Inside it, create a local variable y = 10
+
+// Print both x and y
+
+// Outside the function, print only x
+
+// Printing y should give an error
+
+
+
+
+// let x = 5; // global
+
+// function test() {
+//   let y = 10; // local
+//   console.log(x); // allowed
+//   console.log(y); // allowed
+// }
+
+// test();
+
+// console.log(x); // allowed
+// console.log(y); // error
+
+
+
+// Task:
+
+// Create a global variable a = 20.
+
+// Create a function showValues().
+
+// Inside the function, create a local variable b = 30.
+
+// Print both a and b inside the function.
+
+// Outside the function, print only a.
+
+// Try printing b outside the function and note what happens.
+
+
+
+
+// Task:
+
+// Create a global variable score = 50.
+
+// Create a function updateScore().
+
+// Inside the function, create a local variable score = 100.
+
+// Print score inside the function.
+
+// Outside the function, print the global score.
+
+// Call the function twice and see what happens to the global score.
+
+
+
+
+// let score = 50;
+
+// function updateScore() {
+//   let score = 100;
+//   console.log("Inside function, score =", score);
+// }
+
+// updateScore(); 
+
+// updateScore(); 
+
+// console.log("Outside function, score =", score);
+
+
+
+// Create a global variable points = 0.
+
+// Create a function playGame() which does the following:
+
+// Inside, create a local variable points = 50.
+
+// Increment the global points by 10.
+
+// Print both local and global points.
+
+// Call playGame() twice.
+
+// Outside the function, print the global points.
+
+// Hint: This mixes local variable shadowing and updating global variable at the same time.
+
+
+// Global variable
+// let points = 0;
+
+// function playGame() {
+//   // Local variable shadows the global one
+//   let points = 50;
+
+//   // Update global variable directly by referring to its name
+//   globalPoints += 10;
+
+//   console.log("Inside function, local points =", points);   // 50
+//   console.log("Inside function, global points =", globalPoints); // 10, 20, etc.
+// }
+
+// // Use a separate variable to track global updates
+// let globalPoints = points;
+// First call
+// playGame(); 
+// Output:
+// Inside function, local points = 50
+// Inside function, global points = 10
+
+// Second call
+// playGame(); 
+// Output:
+// Inside function, local points = 50
+// Inside function, global points = 20
+
+// Outside function
+// console.log("Outside function, global points =", globalPoints); // 20
+
+
+
+
+// Synchronous JavaScript Example
+// Code runs line-by-line.
+// Next line waits for the previous line to finish.
+
+// Example:
+
+// console.log("Start");
+
+// for (let i = 1; i <= 3; i++) {
+//     console.log("Counting:", i);
+// }
+// console.log("End");
+
+
+// Asynchronous JavaScript Example
+
+// Uses setTimeout → code does NOT wait.
+// Other lines continue running while the timer works in background.
+
+
+// console.log("Start");
+// setTimeout(() => {
+//     console.log("This prints after 2 seconds");
+// }, 2000);
+
+// console.log("End");
+
+
+// Guess the Output
+// let num = 1;
+// setTimeout(() => {
+//     num = 5;
+// }, 10);
+// setTimeout(() => {
+//     console.log("A:", num);
+// }, 0);
+
+// console.log("B:", num);
+
+
+// Guess the Output
+// console.log("A");
+
+// setTimeout(() => {
+//     console.log("B");
+// }, 0);
+
+// setTimeout(() => {
+//     console.log("C");
+// }, 50);
+
+// console.log("D");
+
+
+
+// Task (Asynchronous JS – setTimeout & order confusion)
+
+// You have four messages: "Step 1", "Step 2", "Step 3", "Step 4".
+
+// Requirements:
+
+// "Step 1" prints immediately.
+
+// "Step 2" prints after 0 ms using setTimeout.
+
+// "Step 3" prints after 500 ms.
+
+// "Step 4" prints after "Step 2" but before "Step 3" without changing 
+// the existing setTimeouts, only by adding one extra setTimeout.
+
+
+
+// console.log("Step 1");
+
+// setTimeout(() => {
+//     console.log("Step 2");
+// }, 0);
+
+// setTimeout(() => {
+//     console.log("Step 3");
+// }, 500);
+
+// // Extra setTimeout to print Step 4 after Step 2 but before Step 3
+// setTimeout(() => {
+//     console.log("Step 4");
+// }, 0);
+
+
+// Task:
+// Print messages "A", "B", "C", "D" in this tricky order:
+
+// "A" prints immediately.
+
+// "B" prints after 0 ms.
+
+// "C" prints after "B" but before "D".
+
+// "D" prints last after 50 ms.
+
+
+// Callback in JavaScript
+// A callback is a function passed as an argument to another function and 
+// executed inside it to perform a task.
+
+// Callbacks are commonly used in asynchronous operations such as setTimeout, 
+// file reading, or API calls.
+
+
+// Example Without callback
+// function greet(name) {
+//     console.log("Hello, " + name);
+// }
+// function askQuestion() {
+//     console.log("How are you?");
+// }
+// // Called separately
+// greet("User");
+// askQuestion();
+
+
+
+// With callback
+function greet(name, callback) {
+    console.log("Hello, " + name);
+    callback(); // executes after greet finishes
+}
+function askQuestion() {
+    console.log("How are you?");
+}
+// Using callback
+greet("User", askQuestion);
+
 
 
