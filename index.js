@@ -389,16 +389,44 @@
 
 
 
-// With callback
-function greet(name, callback) {
-    console.log("Hello, " + name);
-    callback(); // executes after greet finishes
-}
-function askQuestion() {
-    console.log("How are you?");
-}
-// Using callback
-greet("User", askQuestion);
+// // With callback
+//  function greet(name, callback) {
+//     console.log("Hello, " + name);
+//     callback();
+// }
+// function askQuestion() {
+//     console.log("How are you?");
+// }
+// greet("User", askQuestion);
 
 
 
+// Promise in JavaScript
+// A Promise is an object that represents the eventual completion (or failure) 
+// of an asynchronous operation and its resulting value.
+
+// It helps manage asynchronous tasks in a cleaner way than callbacks.
+
+// A Promise has three states:
+// Pending – initial state, operation not finished.
+// Fulfilled – operation completed successfully.
+// Rejected – operation failed.
+
+// Create a simple promise
+let promise = new Promise((resolve, reject) => {
+    let taskDone = true; // change to false to see rejection
+    if(taskDone){
+        resolve("Task is done!");
+    } else {
+        reject("Task failed!");
+    }
+});
+
+// Using the promise
+promise
+    .then((message) => {
+        console.log(message); // runs if resolve() is called
+    })
+    .catch((error) => {
+        console.log(error);   // runs if reject() is called
+    });
