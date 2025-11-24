@@ -412,21 +412,34 @@
 // Fulfilled – operation completed successfully.
 // Rejected – operation failed.
 
-// Create a simple promise
-let promise = new Promise((resolve, reject) => {
-    let taskDone = true; // change to false to see rejection
-    if(taskDone){
-        resolve("Task is done!");
-    } else {
-        reject("Task failed!");
-    }
-});
+// // Create a simple promise
+// let promise = new Promise((resolve, reject) => {
+//     let taskDone = true; // change to false to see rejection
+//     if(taskDone){
+//         resolve("Task is done!");
+//     } else {
+//         reject("Task failed!");
+//     }
+// });
 
-// Using the promise
-promise
-    .then((message) => {
-        console.log(message); // runs if resolve() is called
-    })
-    .catch((error) => {
-        console.log(error);   // runs if reject() is called
-    });
+// // Using the promise
+// promise
+//     .then((message) => {
+//         console.log(message); // runs if resolve() is called
+//     })
+//     .catch((error) => {
+//         console.log(error);   // runs if reject() is called
+//     });
+
+
+
+// Async/Await in JavaScript
+
+// async makes your function wait-friendly.
+// It means the function can use await, and it automatically returns a Promise.
+
+// Await
+
+// await tells JavaScript:
+// “Stop here until this work is finished.”
+// (But only works inside an async function.)
