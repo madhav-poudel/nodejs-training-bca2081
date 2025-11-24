@@ -433,13 +433,26 @@
 
 
 
+
+
+
 // Async/Await in JavaScript
 
 // async makes your function wait-friendly.
 // It means the function can use await, and it automatically returns a Promise.
 
 // Await
-
 // await tells JavaScript:
 // “Stop here until this work is finished.”
 // (But only works inside an async function.)
+
+
+// async function test() {
+//     console.log("1");
+
+//     await new Promise(r => setTimeout(r, 1000)); // waits here
+
+//     console.log("2");
+// }
+
+// test();
