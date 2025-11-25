@@ -518,6 +518,7 @@ divide(10, 2); // Works fine
 divide(10, 0); // Error handled
 
 
+
 // Task:
 // Create a function checkNumber(num) that:
 // Throws an error "Number must be positive!" if num < 0.
@@ -530,6 +531,30 @@ divide(10, 0); // Error handled
 // Test your function with:
 // getData(5) → should print "Valid number: 5" and "Check finished.".
 // getData(-3) → should print "Error caught: Number must be positive!" and "Check finished.".
+
+
+// Solution:
+
+// Function that may throw an error
+function checkNumber(num) {
+    if (num < 0) throw "Number must be positive!";
+    return num;
+}
+
+// Function to handle errors
+function getData(num) {
+    try {
+        let validNumber = checkNumber(num);
+        console.log("Valid number:", validNumber);
+    } catch (err) {
+        console.log("Error caught:", err);
+    } finally {
+        console.log("Check finished.");
+    }
+}
+// Test cases
+getData(5);   // Valid number: 5
+getData(-3);  // Error caught: Number must be positive!
 
 
 
