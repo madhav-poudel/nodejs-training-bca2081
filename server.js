@@ -12,6 +12,8 @@
 // Supports npm (Node Package Manager) for installing packages
 
 
+
+
 // Example of a simple Node.js server:
 const http = require('http');
 
@@ -24,3 +26,5 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
+
+
