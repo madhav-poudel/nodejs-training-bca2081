@@ -26,5 +26,22 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
+server
 
 
+
+
+
+// What will happen if you run this code in Node.js?
+
+const http = require('http');
+const server = http.createServer((req, res) => {
+  res.end('Hello Node!');
+});
+console.log('Server running...');
+
+
+// A) Server starts and responds to requests automatically
+// B) Server is created but does not respond to any requests
+// C) Code throws an error
+// D) “Hello Node!” is printed in the console
