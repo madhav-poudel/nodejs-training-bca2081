@@ -36,15 +36,88 @@
 
 // Creating a Basic Express Server
 
-const express = require("express");
-require("dotenv").config();
+// const express = require("express");
+// require("dotenv").config();
 
+// const app = express();
+
+// app.get("/", (req, res) => {
+//   res.send("Hello from Express!");
+// });
+
+// app.listen(process.env.PORT || 5000, () => {
+//   console.log("Server running...");
+// });
+
+
+
+// Basic Routing in Express.js
+// const express = require("express");
+// const app = express();
+// const PORT = 3000;
+
+// app.get("/about", (req, res) => {
+//   res.send("About page");
+// });
+
+// app.get("/contact", (req, res) => {
+//   res.send("Contact form submitted");
+// });
+
+
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
+
+
+
+
+
+// Middleware in Express.js
+
+// Middleware functions are functions that have access to the request object (req),
+//  the response object (res), and the next middleware function in the 
+// application request-response cycle. They can perform tasks like logging, 
+// authentication, parsing request bodies, etc.
+
+// Middleware can be application-level or router-level.
+
+// Middleware can be used for:
+// Logging requests
+// Parsing request bodies
+// Handling authentication
+// Serving static files
+// Error handling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Example of Middleware
+
+const express = require("express");
 const app = express();
 
+// Middleware to log requests
+app.use((req, res, next) => {
+  console.log(`${req.method} request for ${req.url}`);
+  next(); // Pass control to the next middleware function
+});
+
+// Route handler
 app.get("/", (req, res) => {
   res.send("Hello from Express!");
 });
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Server running...");
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
