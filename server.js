@@ -14,22 +14,18 @@
 
 
 
-// Example of a simple Node.js server:
-const http = require('http');
+// // Example of a simple Node.js server:
+// const http = require('http');
 
-// Create server
-const server = http.createServer((req, res) => {
-  res.end('Hello from Node.js server!');
-});
+// // Create server
+// const server = http.createServer((req, res) => {
+//   res.end('Hello from Node.js server!');
+// });
 
-// Start server on port 3000
-server.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});
-server
-
-
-
+// // Start server on port 3000
+// server.listen(3000, () => {
+//   console.log('Server is running on http://localhost:3000');
+// });
 
 
 // What will happen if you run this code in Node.js?
@@ -40,8 +36,9 @@ const server = http.createServer((req, res) => {
 });
 console.log('Server running...');
 
-
 // A) Server starts and responds to requests automatically
 // B) Server is created but does not respond to any requests
 // C) Code throws an error
 // D) “Hello Node!” is printed in the console
+
+// Answer: B) Server is created but does not respond to any requests
