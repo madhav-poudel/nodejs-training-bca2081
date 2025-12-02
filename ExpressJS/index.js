@@ -1,3 +1,14 @@
+// Firstly Install the following commands:
+
+// npm init -y
+// npm install
+// npm install nodemon --save-dev
+// npm install express
+// npm install dotenv
+// npm install -g express
+
+
+
 // What is Express.js?
 
 // A minimal and flexible Node.js framework used to build web servers and APIs.
@@ -102,22 +113,75 @@
 
 
 
-// Example of Middleware
+// // Example of Middleware
+
+// const express = require("express");
+// const app = express();
+
+// // Middleware to log requests
+// app.use((req, res, next) => {
+//   console.log(`${req.method} request for ${req.url}`);
+//   next(); // Pass control to the next middleware function
+// });
+
+// // Route handler
+// app.get("/", (req, res) => {
+//   res.send("Hello from Express!");
+// });
+
+// app.listen(3000, () => {
+//   console.log("Server running on port 3000");
+// });
+
+
+
+// GET Request
+
+// What GET is used for:
+// Fetch data from the server
+// Show pages, list items, get user info
+// Browser can call GET easily
+
+// Example of GET Request
+
+// const express = require("express");
+// const app = express();
+
+// app.get("/user", (req, res) => {
+//   res.send("User data fetched");
+// });
+
+// app.listen(3000, () => {
+//   console.log("Server running on port 3000");
+// });
+
+
+// POST Request
+
+// What POST is used for:
+// Send data to the server
+// Create new resources, submit forms, upload files
+// Not cached by browsers
+
+
+// Example of POST Request
 
 const express = require("express");
 const app = express();
+const port = 5000;
 
-// Middleware to log requests
-app.use((req, res, next) => {
-  console.log(`${req.method} request for ${req.url}`);
-  next(); // Pass control to the next middleware function
+// To read form data
+app.use(express.urlencoded({ extended: true }));
+
+// POST Route
+app.post("/contact", (req, res) => {
+  const { name, email } = req.body;
+  res.send(`Received: Name = ${name}, Email = 
+    ${email}`);
 });
 
-// Route handler
-app.get("/", (req, res) => {
-  res.send("Hello from Express!");
-});
-
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+// Start server
+app.listen(port, () => {
+  console.log(`Server running 
+    at http://localhost:${port}`);
 });
