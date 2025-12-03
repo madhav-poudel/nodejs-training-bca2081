@@ -164,24 +164,52 @@
 // Not cached by browsers
 
 
-// Example of POST Request
+// // Example of POST Request
+
+// const express = require("express");
+// const app = express();
+// const port = 5000;
+
+// // To read form data
+// // app.use(express.urlencoded({ extended: true }));
+
+// // POST Route
+// app.post("/contact", (req, res) => {
+//   const { name, email } = req.body;
+//   res.send(`Received: Name = ${name}, Email = 
+//     ${email}`);
+// });
+
+// // Start server
+// app.listen(port, () => {
+//   console.log(`Server running 
+//     at http://localhost:${port}`);
+// });
+
+
 
 const express = require("express");
 const app = express();
 const port = 5000;
 
-// To read form data
+// To read JSON body (Postman raw -> JSON)
+app.use(express.json());
+
+// To read form data (Postman x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: true }));
 
 // POST Route
 app.post("/contact", (req, res) => {
   const { name, email } = req.body;
-  res.send(`Received: Name = ${name}, Email = 
-    ${email}`);
+  
+  res.send({
+    message: "Data received successfully",
+    name: name,
+    email: email
+  });
 });
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running 
-    at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
