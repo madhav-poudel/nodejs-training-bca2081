@@ -79,11 +79,6 @@
 // app.listen(PORT, () => {
 //   console.log(`Server running on http://localhost:${PORT}`);
 // });
-
-
-
-
-
 // Middleware in Express.js
 
 // Middleware functions are functions that have access to the request object (req),
@@ -99,19 +94,6 @@
 // Handling authentication
 // Serving static files
 // Error handling
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // Example of Middleware
 
@@ -132,8 +114,6 @@
 // app.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
-
-
 
 // GET Request
 
@@ -163,29 +143,21 @@
 // Create new resources, submit forms, upload files
 // Not cached by browsers
 
-
-// // Example of POST Request
-
 // const express = require("express");
 // const app = express();
 // const port = 5000;
 
-// // To read form data
-// // app.use(express.urlencoded({ extended: true }));
+// app.use(express.json()); // for JSON body
+// app.use(express.urlencoded({ extended: true })); // for form data
 
-// // POST Route
 // app.post("/contact", (req, res) => {
 //   const { name, email } = req.body;
-//   res.send(`Received: Name = ${name}, Email = 
-//     ${email}`);
+//   res.send(`Received: Name = ${name}, Email = ${email}`);
 // });
 
-// // Start server
 // app.listen(port, () => {
-//   console.log(`Server running 
-//     at http://localhost:${port}`);
+//   console.log(`Server running at http://localhost:${port}`);
 // });
-
 
 
 // const express = require("express");
@@ -216,35 +188,49 @@
 
 
 
-// GET Request with Query Params and URL Params
+// // // GET Request with Query Params and URL Params
+// const express = require("express");
+// const app = express();
+// const port = 5000;
+
+// // Simple GET
+// app.get("/info", (req, res) => {
+//   res.send("Server is running.");
+// });
+// // GET with Query Params
+// app.get("/user", (req, res) => {
+//   const { name, age } = req.query;
+
+//   res.send(
+//     `Query Received\nName: ${name}\nAge: ${age}`
+//   );
+// });
+
+// // Start server
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`);
+// });
+
+
+
+// Advanced Routing in ExpressJS
+
+//  Advanced routing means creating cleaner, modular, and more flexible routes using route 
+// parameters, query params, and express.Router().
+
 const express = require("express");
 const app = express();
-const port = 5000;
 
-// Simple GET
-app.get("/info", (req, res) => {
-  res.send("Server is running.");
-});
+// Parse JSON (not needed for this route but good practice)
+app.use(express.json());
 
-// GET with Query Params
-app.get("/user", (req, res) => {
-  const { name, age } = req.query;
-
-  res.send(
-    `Query Received\nName: ${name}\nAge: ${age}`
-  );
-});
-
-// GET with URL Params
-app.get("/product/:id", (req, res) => {
-  const productId = req.params.id;
-
-  res.send(
-    `Product ID Received: ${productId}`
-  );
+// Route parameter example
+app.get("/users/:id", (req, res) => {
+  const userId = req.params.id;
+  res.send(`User ID is: ${userId}`);
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(5000, () => {
+  console.log("Server running on http://localhost:5000");
 });
