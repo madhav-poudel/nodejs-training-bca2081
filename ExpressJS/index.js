@@ -234,3 +234,18 @@ app.get("/users/:id", (req, res) => {
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");
 });
+
+
+// Middleware in ExpressJS
+// Middleware = a function that runs between request and response.
+// Used for: logging, authentication, validation, parsing, errors, etc.
+
+// Types of Middleware:
+// 1. Application Level middleware
+// 2. Custom middleware
+// 3.Route-level & App-level middleware
+// 4. Error-handling middleware
+
+
+
+
