@@ -501,6 +501,9 @@
 // TypeError → wrong type (like number + string)
 // ReferenceError → variable doesn’t exist
 
+
+
+// Example of Try-Catch-Finally
 function divide(a, b) {
     try {
         if (b === 0) throw "Cannot divide by zero!"; // Throw error if b is 0
@@ -513,9 +516,17 @@ function divide(a, b) {
     }
 }
 
-// Test cases
-divide(10, 2); // Works fine
-divide(10, 0); // Error handled
+
+
+
+
+
+
+
+
+// // Test cases
+// divide(10, 2); // Works fine
+// divide(10, 0); // Error handled
 
 
 
@@ -536,25 +547,25 @@ divide(10, 0); // Error handled
 // Solution:
 
 // Function that may throw an error
-function checkNumber(num) {
-    if (num < 0) throw "Number must be positive!";
-    return num;
-}
+// function checkNumber(num) {
+//     if (num < 0) throw "Number must be positive!";
+//     return num;
+// }
 
-// Function to handle errors
-function getData(num) {
-    try {
-        let validNumber = checkNumber(num);
-        console.log("Valid number:", validNumber);
-    } catch (err) {
-        console.log("Error caught:", err);
-    } finally {
-        console.log("Check finished.");
-    }
-}
-// Test cases
-getData(5);   // Valid number: 5
-getData(-3);  // Error caught: Number must be positive!
+// // Function to handle errors
+// function getData(num) {
+//     try {
+//         let validNumber = checkNumber(num);
+//         console.log("Valid number:", validNumber);
+//     } catch (err) {
+//         console.log("Error caught:", err);
+//     } finally {
+//         console.log("Check finished.");
+//     }
+// }
+// // Test cases
+// getData(5);   // Valid number: 5
+// getData(-3);  // Error caught: Number must be positive!
 
 
 
@@ -569,3 +580,39 @@ getData(-3);  // Error caught: Number must be positive!
 
 // Exporting: Share code (functions, variables, classes) from a module.
 // Importing: Use code from another module. 
+
+
+
+
+
+// Scopes
+
+// Scope defines where a variable can be accessed.
+// Types:
+// Global Scope: Accessible anywhere.
+// Function Scope: Accessible only inside a function.
+// Block Scope: Accessible only inside { } (let, const).
+
+
+
+
+
+
+
+
+// Examples:
+
+//  let a = 100; 
+// const b = 200;
+
+
+
+function test() {
+ let a = 10; 
+const b = 20;
+}
+
+
+console.log(a); 
+console.log(b); 
+
