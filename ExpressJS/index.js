@@ -173,7 +173,7 @@
 // // POST Route
 // app.post("/contact", (req, res) => {
 //   const { name, email } = req.body;
-  
+
 //   res.send({
 //     message: "Data received successfully!!",
 //     name: name,
@@ -213,27 +213,28 @@
 
 
 
+
 // Advanced Routing in ExpressJS
 
 //  Advanced routing means creating cleaner, modular, and more flexible routes using route 
 // parameters, query params, and express.Router().
+ 
+// const express = require("express");
+// const app = express();
 
-const express = require("express");
-const app = express();
+// // Parse JSON (not needed for this route but good practice)
+// app.use(express.json());
 
-// Parse JSON (not needed for this route but good practice)
-app.use(express.json());
+// // Route parameter example
+// app.get("/users/:id", (req, res) => {
+//   const userId = req.params.id;
+//   res.send(`User ID is: ${userId}`);
+// });
 
-// Route parameter example
-app.get("/users/:id", (req, res) => {
-  const userId = req.params.id;
-  res.send(`User ID is: ${userId}`);
-});
-
-// Start server
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
-});
+// // Start server
+// app.listen(5000, () => {
+//   console.log("Server running on http://localhost:5000");
+// });
 
 
 // Middleware in ExpressJS
@@ -246,7 +247,49 @@ app.listen(5000, () => {
 // 3.Route-level & App-level middleware
 // 4. Error-handling middleware
 
+// Application Level Middleware
+// Middleware that runs on every request.
+// Used for logging, authentication, parsing, etc.
+// const express = require("express");
+// const app = express();
+
+// // Simple middleware
+// app.use((req, res, next) => {
+//   console.log("Middleware works!");
+//   next();
+// });
+
+// app.get("/", (req, res) => {
+//   res.send("Hello from Express!");
+// });
+
+// app.listen(5000, () => {
+//   console.log("Server started at http://localhost:5000");
+// });
 
 
 
+// Custom Middleware
+
+// Custom middleware is a middleware you create yourself to perform a specific task 
+// (logging, checking, validation, authentication, etc.)
+// It is written as a function and used with app.use() or directly in routes.
+
+//Example of Custom Middleware
+const express = require("express");
+const app = express();
+
+ function myMiddleware(req, res, next) {
+  console.log("This is my custom middleware");
+  next();
+}
+app.use(myMiddleware);
+
+app.get("/", (req, res) => {
+  res.send("Home Page");
+});
+
+app.listen(5000, () => {
+  console.log("Server started at http://localhost:5000");
+});
 

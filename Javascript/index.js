@@ -607,12 +607,47 @@ function divide(a, b) {
 
 
 
-function test() {
- let a = 10; 
-const b = 20;
-}
+// function test() {
+//  let a = 10; 
+// const b = 20;
+// }
 
 
-console.log(a); 
-console.log(b); 
+// console.log(a); 
+// console.log(b); 
+
+
+
+
+// JSON (JavaScript Object Notation)
+
+// JSON is a lightweight format for storing and transferring data, mostly used in client-server communication.
+
+// Uses:
+
+// Store data
+// Send data from server to client
+// Exchange data via APIs
+
+
+// // JSON Object
+// let user = {
+//     "name": "Madhav",
+//     "age": 21,
+//     "isStudent": true
+// };
+
+// // Access JSON data
+// console.log(user.name); // Madhav
+
+// // Convert JSON to string
+// let jsonString = JSON.stringify(user);
+// console.log(jsonString);
+
+// // Convert string back to JSON
+// let jsonObj = JSON.parse(jsonString);
+// console.log(jsonObj.age); // 21
+
+
+
 
