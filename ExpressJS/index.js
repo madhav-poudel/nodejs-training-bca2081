@@ -275,21 +275,140 @@
 // (logging, checking, validation, authentication, etc.)
 // It is written as a function and used with app.use() or directly in routes.
 
-//Example of Custom Middleware
-const express = require("express");
+// //Example of Custom Middleware
+// const express = require("express");
+// const app = express();
+
+//  function myMiddleware(req, res, next) {
+//   console.log("This is my custom middleware");
+//   next();
+// }
+// app.use(myMiddleware);
+
+// app.get("/", (req, res) => {
+//   res.send("Home Page");
+// });
+
+// app.listen(5000, () => {
+//   console.log("Server started at http://localhost:5000");
+// });
+
+
+
+
+// 3. Error Handling Middleware
+
+// Error-handling middleware is used to catch and handle errors in Express 
+// so that the server does not crash and the user gets a proper message.
+
+// Uses:
+// Prevents server from crashing when an error occurs
+// Sends a proper and user-friendly error message to the client
+// Handles all errors from one central place
+// Helps in debugging by logging error details
+// Improves application security by hiding internal errors
+// Allows sending correct HTTP status codes (400, 500, etc.)
+
+// Commonly used HTTP Status Codes:
+// 200 - OK - Request Successful
+// 201 - Created - Resource Created Successfully
+// 400 - Bad Request - Invalid Request
+// 401 - Unauthorized - Authentication Required
+// 403 - Forbidden - Access Denied
+// 404 - Not Found - Resource Not Found
+// 500 - Internal Server Error - Server Error
+// 503 - Service Unavailable - Server Overloaded or Down
+
+
+// Example of Error Handling Middleware
+// const express = require("express");
+// const app = express();
+
+// app.get("/", (req, res, next) => {
+//   // const error = new Error("Something went wrong");
+//   next("Something went wrong");
+// // next(error);
+// });
+// app.use((err, req, res, next) => {
+//   console.log("Error:", err.message);
+//   res.send("Error occurred!");
+// });
+
+// app.listen(5000, () => {
+//   console.log("Server started http://localhost:5000");
+// });
+
+
+
+
+// 4. Route-level & App-level middleware
+
+// App Level Middleware
+// App-level middleware is applied to the whole Express application. 
+// It runs on every request that comes to the server, regardless of the route.
+
+// Where it is used:
+// Logging requests
+// Authentication checks for all routes
+// Parsing JSON or form data globally
+// Handling CORS or global headers
+
+// Route-level Middleware
+// Route-level middleware is applied to specific routes only. 
+// It runs only when that route is called.
+
+// Where it is used:
+// Authentication for a particular route
+// Validating request data for a specific endpoint
+// Route-specific logging or custom logic
+
+
+
+// // Example of Route-level & App-level Middleware
+
+// const express = require("express");
+// const app = express();
+
+// app.use((req, res, next) => {
+//   console.log("App-level middleware");
+//   next();
+// });
+
+// function routeMiddleware(req, res, next) {
+//   console.log("Route-level middleware");
+//   next();
+// }
+
+// app.get("/dashboard", routeMiddleware, (req, res) => {
+//   res.send("Dashboard Page");
+// });
+
+// app.listen(5000, () => {
+//   console.log("Server started");
+// });
+
+
+// Async/Await Middleware
+
+// Async/Await middleware is used to wait for a task to finish before moving to the next step.
+
+
+// Examples of Async/Await middleware.
+
+const express = require ("express");
 const app = express();
 
- function myMiddleware(req, res, next) {
-  console.log("This is my custom middleware");
+app.use(async(req, res, next)=>{
+  console.log ("Middleware Started");
+
+  await console.log ("Waiting task done");
   next();
-}
-app.use(myMiddleware);
-
-app.get("/", (req, res) => {
-  res.send("Home Page");
 });
 
-app.listen(5000, () => {
-  console.log("Server started at http://localhost:5000");
+app.get ("/", (req, res,)=>{
+  res.send("Hello BCA Students");
 });
 
+app.listen(5000, ()=>{
+  console.log ("Server Started");
+});
